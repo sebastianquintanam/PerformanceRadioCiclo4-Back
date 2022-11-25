@@ -1,6 +1,6 @@
 const crypto = require("crypto");
 
-let dbOyentes = [
+let dbUsuarios = [
     {
         id: 1,
         firstName: "Terry",
@@ -1862,49 +1862,49 @@ let dbOyentes = [
     },
 ];
 
-function getAllOyentes() {
-    return dbOyentes;
+function getAllUsuarios() {
+    return dbUsuarios;
 }
 
-function getOyente(id) {
+function getUsuario(id) {
     let result = {};
-    for (let i = 0; i < dbOyentes.length; i++){
-        if(dbOyentes[i].id == id) {
-            result = dbOyentes[i];
+    for (let i = 0; i < dbUsuarios.length; i++){
+        if(dbUsuarios[i].id == id) {
+            result = dbUsuarios[i];
             break;
         }
     }
     return result;
 }
-function createOyente(oyente){
+function createUsuario(usuario){
     let id = crypto.randomUUID();
-    let newOyente = {};
-    newOyente.id = id;
-    newOyente.firstName = oyente.nombre;
-    newOyente.email = oyente.email;
-    newOyente.pasword = oyente.contrasena;
-    newOyente.username = oyente.nombre_usuario;
+    let newUsuario = {};
+    newUsuario.id = id;
+    newUsuario.firstName = usuario.nombre;
+    newUsuario.email = usuario.email;
+    newUsuario.password = usuario.contrasena;
+    newUsuario.username = usuario.nombre_usuario;
 
 //     "nombre":"testing",
 //   "nombre_usuario":"USER",
 //   "contrasena":"1234",
 //   "email":"ej@test.com"
-    dbOyentes.push(newOyente);
+    dbUsuarios.push(newUsuario);
     return id;
 }
-function deleteOyente(id){
+function deleteUsuario(id){
     let result = [];
-    for (let i = 0; i < dbOyentes.length; i++){
-        if(dbOyentes[i].id != id) {
-            result.push(dbOyentes[i]);
+    for (let i = 0; i < dbUsuarios.length; i++){
+        if(dbUsuarios[i].id != id) {
+            result.push(dbUsuarios[i]);
         }
     }
-    dbOyentes = result;
+    dbUsuarios = result;
 }
 
 module.exports = {
-    getAllOyentes, 
-    createOyente,
-    deleteOyente,
-    getOyente,
+    getAllUsuarios, 
+    createUsuario,
+    deleteUsuario,
+    getUsuario,
 };
