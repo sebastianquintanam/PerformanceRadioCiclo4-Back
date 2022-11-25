@@ -47,7 +47,7 @@ async function createUser(UsernewUser){
 }
 async function deleteUser(id){
     try{
-        let result = await UserModel.findByAndRemove(id)
+        let result = await UserModel.findByIdAndRemove(id).exec();
         return result;
     } catch (ex) {
         console.log(ex);

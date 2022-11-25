@@ -22,4 +22,11 @@ router.post("/create", async function (req, res) {
     res.json(result);
 });
 
+router.delete("/delete/:idUser", async function(req, res){
+    let idUser = req.params.idUser;
+    let result = await userSchema.deleteUser(idUser);
+    res.json("El usuario fue eliminado correctamente");
+});
+
+
 module.exports = router;
